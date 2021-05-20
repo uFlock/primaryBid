@@ -1,12 +1,11 @@
 import { Router, Request, Response } from "express";
 
 import { User } from "../../../models/user";
-
 import { validateBody } from "../../../middlewares";
-import { validateRegisterRequest } from "./controller";
+import { createToken } from "../../../utils/createJwtToken";
 
 import { schema } from './routeSchema';
-import { createToken } from "../../../utils/createJwtToken";
+import { validateRegisterRequest } from "./controller";
 
 export const registerUser = (router: Router) => router
 	.post(

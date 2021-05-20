@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+// import cors from "cors";
 import bodyParser from "body-parser";
 
 import "express-async-errors";
@@ -16,10 +17,6 @@ declare global {
 		}
 	}
 }
-
-// import cors from "cors";
-
-
 
 const app = express();
 
