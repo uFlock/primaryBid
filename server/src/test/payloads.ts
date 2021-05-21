@@ -20,3 +20,7 @@ export const defaultLoginPayload = {
 	email: 'test@test.com',
 	password: 'super_secure_password'
 };
+
+export const defaultGenerateLinkPayload = {
+	url: 'https://google.com',
+};

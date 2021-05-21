@@ -24,3 +24,7 @@ Content-Type: application/json
 ###
 POST http://localhost:3000/api/links/generate
 Content-Type: application/json
+
+{
+    "url": "https://www.google.com/search?q=dasdas+d+sad+adas&sxsrf=ALeKk00TC75ehYXrWp6-QjbgawkevNUW4Q%3A1621609554361&source=hp&ei=UsynYLzJEs_YaJDYv4AN&iflsig=AINFCbYAAAAAYKfaYtIuJkFsAs7ShX9jEKxvFtrSWRNy&oq=dasdas+d+sad+adas&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgQIABBDOgUIABCRAjoICAAQsQMQgwE6BwgAELEDEEM6BQgAELEDOgUILhCxAzoOCC4QsQMQgwEQxwEQrwE6BAguEEM6BAgAEAo6AggAOggILhDHARCvAToGCAAQFhAeOggIABAWEAoQHjoGCAAQDRAKOggIIRAWEB0QHlCoDFj0EmDzFWgAcAB4A4ABvAGIAfYLkgEEMTUuM5gBAKABAaoBB2d3cy13aXo&sclient=gws-wiz&ved=0ahUKEwi8usurhtvwAhVPLBoKHRDsD9AQ4dUDCAk&uact=5"
+}

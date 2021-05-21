@@ -5,6 +5,7 @@ import { applyIdTransform } from "../utils/formatDocId";
 import { UserDocument } from "./user";
 
 export interface LinkAttributes {
+	shortId: string
 	shortLink: string
 	originalLink: string
 	creator: string | null
@@ -12,6 +13,7 @@ export interface LinkAttributes {
 }
 
 export interface LinkDocument extends Document {
+	shortId: string
 	shortLink: string
 	originalLink: string
 	creator: string | UserDocument | null
@@ -26,6 +28,7 @@ const transform = (doc: any, ret: any) => applyIdTransform(ret);
 
 const LinkSchema: Schema = new Schema(
 	{
+		shortId: { type: String, required: true, unique: true, },
 		shortLink: { type: String, required: true, unique: true, },
 		originalLink: { type: String, required: true },
 		creator: {

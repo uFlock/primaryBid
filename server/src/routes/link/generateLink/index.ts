@@ -1,10 +1,12 @@
 import { Router, Request, Response } from "express";
 
-import { currentUser } from "../../../middlewares";
+import { currentUser, validateBody } from "../../../middlewares";
 import { validateGenerateLinkRequest } from "./controller";
 import { generateShortUrl } from "../../../utils/generateShortUrl";
 import { Link, LinkAttributes, LinkDocument } from "../../../models/link";
 import { isDuplicateMongoError } from "../../../utils/asserters";
+
+import { schema } from "./routeSchema";
 
 interface createAndSaveShortUrlResult {
 	linkDocument: LinkDocument
@@ -19,15 +21,18 @@ export const generateLink = (router: Router) => router
 	.post(
 		"/api/links/generate",
 		currentUser,
+		validateBody(schema),
 		routeHandler
 	);
 
 async function routeHandler(req: Request, res: Response) {
 
+	const { url: originalLink } = req.body;
+
 	const currentUser = req.currentUser;
 
 	const { userId } = await validateGenerateLinkRequest(currentUser);
-	const { linkDocument } = await createAndSaveShortUrl(userId);
+	const { linkDocument } = await createAndSaveShortUrl({ userId, originalLink });
 
 	res.send(linkDocument);
 }
@@ -36,9 +41,10 @@ async function createAndSaveShortUrl(params: createAndSaveShortUrlParams): Promi
 
 	const { userId, originalLink } = params;
 
-	const shortLink = generateShortUrl();
+	const { shortId, shortLink } = generateShortUrl();
 
 	const linkAttributes: LinkAttributes = {
+		shortId,
 		shortLink,
 		originalLink,
 		creator: userId,
