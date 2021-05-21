@@ -20,3 +20,7 @@ Content-Type: application/json
     "password": "12345678",
 	"email": "test2@test.com"
 }
+
+###
+POST http://localhost:3000/api/links/generate
+Content-Type: application/json

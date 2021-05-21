@@ -1,0 +1,1 @@
+export const isDuplicateMongoError = (error: Error & { code: any }) => error.code === 11000;
