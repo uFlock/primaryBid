@@ -22,5 +22,5 @@ async function routeHandler(req: Request, res: Response) {
 
 	req.session = { jwt };
 
-	res.send({ currentUser: existingUser });
+	res.send(existingUser);
 }

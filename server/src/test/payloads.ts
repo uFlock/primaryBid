@@ -15,3 +15,8 @@ export const nonExistentUserCookiePayload = {
 	name: 'Test Testerson',
 	email: 'test@test.com',
 };
+
+export const defaultLoginPayload = {
+	email: 'test@test.com',
+	password: 'super_secure_password'
+};

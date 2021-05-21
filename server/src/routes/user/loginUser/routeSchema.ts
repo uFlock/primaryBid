@@ -6,7 +6,7 @@ export const schema: Schema = {
 	allOf: [
 		{
 			properties: {
-				email: { type: "string", format: "email", maxLength: 150 },
+				email: { type: "string", format: "email", minLength: 5, maxLength: 150 },
 				password: { type: "string", minLength: 8 },
 			},
 			additionalProperties: false,
