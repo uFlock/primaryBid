@@ -4,6 +4,7 @@ import { app } from '../../../app';
 import { registerAndLoginUser } from "../../../test/helpers/registerAndLoginUser";
 import { defaultRegisterPayload, RegisterPayload } from "../../../test/payloads";
 import { ValueOf } from "../../../types/ValueOf";
+import { createTooLongEmail } from "../../../test/helpers/email";
 
 const ENDPOINT = `/api/users/register`;
 
@@ -92,10 +93,8 @@ describe(`${ENDPOINT} route`, () => {
 
 	it("returns 400 when email is wrong format", async () => {
 
-		const x = 'x';
-
 		const shortEmail = 'a@f';
-		const longEmail = x.repeat(10) + '@' + x.repeat(140) + '.com';
+		const longEmail = createTooLongEmail();
 
 		const payloadShortEmail = createRegisterPayloadWithDifferent('email', shortEmail);
 		const payloadLongEmail = createRegisterPayloadWithDifferent('name', longEmail);
