@@ -27,9 +27,9 @@ export const generateLink = (router: Router) => router
 
 async function routeHandler(req: Request, res: Response) {
 
-	const { url: originalLink } = req.body;
-
 	const currentUser = req.currentUser;
+
+	const { url: originalLink } = req.body;
 
 	const { userId } = await validateGenerateLinkRequest(currentUser);
 	const { linkDocument } = await createAndSaveShortUrl({ userId, originalLink });
