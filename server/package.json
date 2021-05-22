@@ -4,13 +4,6 @@
 	"description": "Api Server for PrimaryBid Technical Task",
 	"main": "index.js",
 	"scripts": {
-		"dev": "npm run start-mongo-db-dev && npm run start-api-server-dev",
-		"dev-test": "docker-compose -f docker-compose-dev.yml down && docker-compose -f docker-compose-dev.yml up --build",
-		"start-api-server-dev": "npm run rm-dev-docker && npm run build-dev-docker && npm run run-dev-docker",
-		"start-mongo-db-dev": "docker rm -f mongo-db && docker run --name=mongo-db -d -p 27017:27017 mongo",
-		"build-dev-docker": "docker build --target development -t test-node:development .",
-		"run-dev-docker": "docker run -v %cd%/src:/server/src/ --name=test-node -p 3000:3000 test-node:development",
-		"rm-dev-docker": "docker rm -f test-node",
 		"start-dev": "nodemon -L --delay 80ms --watch *.ts --exec ts-node src/index.ts",
 		"start": "npm run build && node build/index",
 		"nodemon": "nodemon",

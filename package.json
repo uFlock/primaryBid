@@ -1,0 +1,12 @@
+{
+	"name": "primary-bid-technical-task",
+	"version": "1.0.0",
+	"description": "PrimaryBid Technical Task",
+	"scripts": {
+		"dev": "docker-compose -f docker-compose-dev.yml down && docker-compose -f docker-compose-dev.yml up --build"
+	},
+	"author": "Vladimir Muzichuk",
+	"license": "MIT",
+	"dependencies": {},
+	"devDependencies": {}
+}

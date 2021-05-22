@@ -30,6 +30,6 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/api/links/get?pageNumber=1
+GET http://localhost:3000/api/links/get
 Accept: application/json
 

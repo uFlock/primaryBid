@@ -5,11 +5,11 @@ services:
     links:
       - mongo-db
     build:
-      context: ./
+      context: ./server
       dockerfile: Dockerfile
       target: development
     volumes:
-      - ./:/server
+      - ./server:/server
       - /server/node_modules/
     ports:
         - "3000:3000"
