@@ -5,7 +5,7 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
-      target: development
+      target: production
     volumes:
       - ./server:/server
       - /server/node_modules/
@@ -19,12 +19,12 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
-      target: development
+      target: production
     volumes:
       - ./client:/client
       - /client/node_modules/
     ports:
-        - "8080:8080"
+        - "80:80"
     networks:
       - frontend
   mongo-db:

@@ -13,7 +13,7 @@ async function start() {
 
 		await connectToMongo();
 
-		console.log('connected to mongo-db');
+		console.log('Connected to mongo-db');
 
 		const server = app.listen(process.env.PORT);
 
