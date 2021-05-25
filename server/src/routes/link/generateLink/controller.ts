@@ -7,7 +7,7 @@ import { getShortLinkBaseUrl } from "../../../modules/environment";
 const SHORT_LINK_BASE_URL = getShortLinkBaseUrl();
 
 const ERRORS = {
-	USER_DOES_NOT_EXIST: 'User is no longer valid',
+	USER_DOES_NOT_EXIST: 'Invalid Session',
 	LINK_ALREADY_SHORTENED: `Is already a ${SHORT_LINK_BASE_URL} link`
 };
 

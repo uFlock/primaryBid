@@ -13,6 +13,8 @@ CMD [ "npm", "run", "serve"]
 
 FROM development AS builder
 
+ENV CHOKIDAR_USEPOLLING=false
+
 RUN npm run build
 
 FROM nginx:1.17.9 AS production

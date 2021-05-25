@@ -54,7 +54,6 @@ export default Vue.extend({
             }
         },
         async logout() {
-            console.log('hello bitch');
             await this.logoutUser();
             await this.$router.push('/');
         },

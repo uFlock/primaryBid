@@ -1,6 +1,8 @@
 version: "3.9"
 services:
   apiServer:
+    env_file:
+      - ./server/.env.dev
     image: "uflock/primarybid-api-server"
     build:
       context: ./server
@@ -10,7 +12,7 @@ services:
       - ./server:/server
       - /server/node_modules/ #because I am developing on windows some modules not compatible between OSs
     ports:
-        - "3000:3000"
+      - "3000:3000"
     networks:
       - frontend
       - backend
@@ -24,14 +26,14 @@ services:
       - ./client:/client
       - /client/node_modules/ #because I am developing on windows some modules not compatible between OSs
     ports:
-        - "8080:8080"
+      - "8080:8080"
     networks:
       - frontend
   mongo-db:
     image: "mongo"
     command: mongod --quiet --logpath /dev/null
     ports:
-        - "27017:27017"
+      - "27017:27017"
     networks:
       - backend
 networks:

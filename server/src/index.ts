@@ -1,25 +1,31 @@
 import http from "http";
-import mongoose, { ConnectionOptions, Mongoose } from "mongoose";
+import mongoose, { Mongoose } from "mongoose";
 
 import { app } from "./app";
+import { getMongoConfig, getServerConfig, validateEnvironment } from "./modules/environment";
 
-start()
-	.then(() => console.log(`API Server: listening on port ${process.env.PORT}`))
-	.catch(console.log);
+validateEnvironment();
 
-async function start() {
+const MONGO_CONFIG = getMongoConfig();
+const SERVER_CONFIG = getServerConfig();
+
+//no catching as need it to crash in case of error
+startServer()
+	.then(() => console.log('Ready to go captain!'));
+
+async function startServer(): Promise<void> {
 
 	try {
 
 		await connectToMongo();
 
-		console.log('Connected to mongo-db');
-
-		const server = app.listen(process.env.PORT);
+		const server = app.listen(SERVER_CONFIG);
 
 		// intercept termination requests and terminate gracefully
 		process.on("SIGINT", () => handleTermination(server, mongoose));
 		process.on("SIGTERM", () => handleTermination(server, mongoose));
+
+		console.log(`API Server: listening on port ${SERVER_CONFIG.port}`);
 
 	} catch (error) {
 		throw new Error(error);
@@ -30,19 +36,14 @@ async function connectToMongo() {
 
 	console.log('Connecting to mongo-db');
 
-	const connectionOptions: ConnectionOptions = {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-		useCreateIndex: true,
-		useFindAndModify: false
-	};
+	await mongoose.connect(MONGO_CONFIG.uri, MONGO_CONFIG.connectionOptions);
 
-	return await mongoose.connect(process.env.MONGO_URI!, connectionOptions);
+	console.log('Connected to mongo-db');
 }
 
 const handleTermination = async (server: http.Server, mongoose: Mongoose) => {
-	await mongoose.disconnect();
 	await httpServerClose(server);
+	await mongoose.disconnect();
 };
 
 const httpServerClose = async (server: http.Server): Promise<boolean> =>

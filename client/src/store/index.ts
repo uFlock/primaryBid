@@ -10,7 +10,7 @@ import { LinkItemType } from "@/types/Link";
 
 Vue.use(Vuex);
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = process.env.VUE_APP_API_BASE_URL;
 
 const API_USER_LOGIN_URL = `${API_BASE_URL}/api/users/login`;
 const API_USER_REGISTER_URL = `${API_BASE_URL}/api/users/register`;

@@ -69,7 +69,7 @@
 import Vue from "vue";
 import { mapActions, mapGetters, mapMutations } from "vuex";
 
-const SHORT_LINK_BASE_URL = 'https://pbid.io/';
+const SHORT_LINK_BASE_URL = process.env.VUE_APP_SHORT_LINK_BASE_URL;
 
 interface LinkCreatorData {
     currentLink: string,

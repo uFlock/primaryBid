@@ -1,9 +1,14 @@
-import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
+import { MongoMemoryServer } from "mongodb-memory-server";
+
+import { getMongoConfig } from "../modules/environment";
+
+const MONGO_CONFIG = getMongoConfig();
 
 const mongo = new MongoMemoryServer();
 
-jest.mock("../utils/scrapeTitleFromUrl", () => require("../utils/__mocks__/scrapeTitleFromUrl"));
+jest.mock("../utils/scrapeTitleFromUrl", () =>
+	require("../utils/__mocks__/scrapeTitleFromUrl"));
 
 beforeAll(async () => {
 
@@ -12,25 +17,11 @@ beforeAll(async () => {
 
 	const mongoUri = await mongo.getUri();
 
-	await mongoose.connect(mongoUri, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-		useCreateIndex: true,
-		useFindAndModify: false
-	});
+	await mongoose.connect(mongoUri, MONGO_CONFIG.connectionOptions);
 });
 
 // clear data before each test
 beforeEach(async () => {
-
-	// jest.mock("../routes/link/generateLink/controller", () => ({
-	// 	...jest.requireActual('../routes/link/generateLink/controller'),
-	// 	scrapeTitleFromUrl: jest.fn((url: string) => {
-	// 		console.log(url);
-	// 		return Promise.resolve({ title: 'google' });
-	// 	})
-	//
-	// }));
 
 	const collections = await mongoose.connection.db.collections();
 
