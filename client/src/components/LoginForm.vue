@@ -2,7 +2,7 @@
     <article>
         <h3>Login Form</h3>
         <div v-if="loginError" class="row">
-            <div  v-for="error in loginError" :key="error.message" class="basic-error">
+            <div v-for="error in loginError" :key="error.message" class="basic-error">
                 {{ error.message }}
             </div>
         </div>
@@ -164,7 +164,7 @@ input[type=submit], button {
 }
 
 @media screen and (max-width: 678px) {
-    .col-25, .col-75 .row, input[type=submit], button {
+    .col-25, .col-75, .row, input[type=submit], button {
         width: 100%;
         margin-left: 0;
         margin-top: 5px;
