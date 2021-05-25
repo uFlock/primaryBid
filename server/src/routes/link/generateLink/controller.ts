@@ -2,9 +2,9 @@ import { User } from "../../../models/user";
 import { RequestUser } from "../../../types/RequestUser";
 import { BadRequestError } from "../../../errors/bad-request-error";
 import { scrapeTitleFromUrl } from "../../../utils/scrapeTitleFromUrl";
+import { getShortLinkBaseUrl } from "../../../modules/environment";
 
-
-const SHORT_LINK_BASE_URL = 'https://pbid.io/';
+const SHORT_LINK_BASE_URL = getShortLinkBaseUrl();
 
 const ERRORS = {
 	USER_DOES_NOT_EXIST: 'User is no longer valid',

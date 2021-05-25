@@ -70,5 +70,3 @@ async function createAndSaveShortUrl(params: createAndSaveShortUrlParams): Promi
 
 	return { linkDocument };
 }
-
-

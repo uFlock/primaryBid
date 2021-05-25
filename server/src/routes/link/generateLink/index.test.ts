@@ -5,9 +5,10 @@ import { registerAndLoginUser } from "../../../test/helpers/registerAndLoginUser
 import { createTestCookie } from "../../../test/helpers/createTestCookie";
 import { defaultGenerateLinkPayload, nonExistentUserCookiePayload } from "../../../test/payloads";
 import { LinkDocument } from "../../../models/link";
+import { getShortLinkBaseUrl } from "../../../modules/environment";
 
 const ENDPOINT = `/api/links/generate`;
-const P_BID_URL = 'https://pbid.io/';
+const P_BID_URL = getShortLinkBaseUrl();
 
 describe(`${ENDPOINT} route`, () => {
 

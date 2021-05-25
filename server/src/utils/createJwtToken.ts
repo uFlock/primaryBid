@@ -1,5 +1,8 @@
 import jwt from "jsonwebtoken";
 
 import { UserAttributes } from "../models/user";
+import { getJwtKey } from "../modules/environment";
 
-export const createToken = (user: UserAttributes) => jwt.sign(user, process.env.JWT_KEY!);
+const JWT_KEY = getJwtKey();
+
+export const createToken = (user: UserAttributes) => jwt.sign(user, JWT_KEY);

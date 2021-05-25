@@ -1,8 +1,10 @@
-import cors from "cors";
+import createCors from "cors";
 import bodyParser from "body-parser";
 import cookieSession from "cookie-session";
 
 import { Express } from 'express';
+
+import { getCorsPolicy, getJwtKey } from "../modules/environment";
 
 export { currentUser } from './current-user';
 export { errorHandler } from './error-handler';
@@ -13,8 +15,10 @@ import { errorHandler } from "./error-handler";
 
 export function setupCors(app: Express) {
 
-	const corsMiddleware = cors({
-		origin: 'http://localhost:8080',
+	const corsPolicy = getCorsPolicy();
+
+	const corsMiddleware = createCors({
+		origin: corsPolicy.allowOrigin,
 		credentials: true
 	});
 
@@ -26,11 +30,14 @@ export function setupBodyParser(app: Express) {
 }
 
 export function setupCookieSession(app: Express) {
+
+	const JWT_KEY = getJwtKey();
+
 	app.use(
 		cookieSession({
 			name: "session",
-			secret: "super secret key",
-			signed: false,
+			secret: JWT_KEY,
+			signed: false, //already using jwt for cookie so no need to sign it
 		})
 	);
 }

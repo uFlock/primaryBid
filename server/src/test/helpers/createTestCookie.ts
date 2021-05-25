@@ -1,8 +1,12 @@
 import jwt from "jsonwebtoken";
 
-export function createTestCookie(payload: any, jwtKey?: string, ) {
+import { getJwtKey } from '../../modules/environment';
 
-	const jwtKeyToUse = jwtKey || process.env.JWT_KEY!;
+const JWT_KEY = getJwtKey();
+
+export function createTestCookie(payload: any, jwtKey?: string,) {
+
+	const jwtKeyToUse = jwtKey || JWT_KEY!;
 
 	const token = jwt.sign(payload, jwtKeyToUse);
 

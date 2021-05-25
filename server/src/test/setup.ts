@@ -8,6 +8,7 @@ jest.mock("../utils/scrapeTitleFromUrl", () => require("../utils/__mocks__/scrap
 beforeAll(async () => {
 
 	process.env.JWT_KEY = "super secret key";
+	process.env.SHORT_LINK_BASE_URL = 'https://short.ly/';
 
 	const mongoUri = await mongo.getUri();
 
