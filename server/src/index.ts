@@ -9,6 +9,7 @@ validateEnvironment();
 const MONGO_CONFIG = getMongoConfig();
 const SERVER_CONFIG = getServerConfig();
 
+//added comment to check github action trigger
 //no catching as need it to crash in case of error
 startServer()
 	.then(() => console.log('Ready to go captain!'));
