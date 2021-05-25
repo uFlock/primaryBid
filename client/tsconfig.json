@@ -10,7 +10,7 @@
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
 		"sourceMap": true,
-		"baseUrl": "./simple-client-app",
+		"baseUrl": "./",
 		"types": [
 			"webpack-env",
 			"jest"

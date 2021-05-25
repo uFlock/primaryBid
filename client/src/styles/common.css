@@ -1,0 +1,82 @@
+#app {
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
+}
+
+body {
+	margin: 0;
+	overflow-x: hidden;
+}
+
+.router-view {
+	margin: 20px;
+}
+
+a.link {
+	color: #232323;
+	font-weight: bolder;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+
+.primary {
+	background-color: #464c49;
+	color: white;
+}
+
+.primary:disabled {
+	background-color: #a0a1a0;
+	color: white;
+}
+
+.primary.copy {
+	background-color: #033365;
+	color: white;
+}
+
+.primary.copied {
+	background-color: #007d33;
+	color: white;
+}
+
+.shortenedUrlInput {
+	color: #033365;
+}
+
+h2, h3, h4 {
+	color: #232323;
+}
+
+.basic-error {
+	color: darkred;
+	padding: 6px 16px;
+}
+
+.input-green, .input-green:focus {
+	outline: none;
+	background: rgba(0, 125, 51, 0.15);
+	border: 1px solid #007d33 !important;
+}
+
+.input-blue, .input-blue:focus {
+	outline: none;
+	background: rgba(37, 91, 123, 0.15);
+	border: 1px solid #006a7d !important;
+}

@@ -44,7 +44,8 @@ async function routeHandler(req: Request, res: Response) {
 
 	const result = await Link.find({ creator: currentUser.id })
 		.skip(documentsToSkip)
-		.limit(documentsToLimit);
+		.limit(documentsToLimit)
+		.sort({ 'createdAt': 'desc' });
 
 	res.send(result);
 }

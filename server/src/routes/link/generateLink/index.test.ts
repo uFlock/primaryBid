@@ -42,6 +42,16 @@ describe(`${ENDPOINT} route`, () => {
 		expect(linkDocument.originalLink).toBe(defaultGenerateLinkPayload.url);
 	});
 
+	it("returns 400 if url is already shortened", async () => {
+
+		const tooShortUrlPayload = { ...defaultGenerateLinkPayload, url: `${P_BID_URL}xxxxxxxx` };
+
+		await request(app)
+			.post(ENDPOINT)
+			.send(tooShortUrlPayload)
+			.expect(400);
+	});
+
 	it("returns 400 if url is too short", async () => {
 
 		const tooShortUrlPayload = { ...defaultGenerateLinkPayload, url: 'https//h.be' };

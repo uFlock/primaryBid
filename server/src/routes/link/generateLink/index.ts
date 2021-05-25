@@ -14,7 +14,8 @@ interface createAndSaveShortUrlResult {
 
 interface createAndSaveShortUrlParams {
 	userId: string | null,
-	originalLink: string
+	originalLink: string,
+	title?: string | null
 }
 
 export const generateLink = (router: Router) => router
@@ -31,15 +32,15 @@ async function routeHandler(req: Request, res: Response) {
 
 	const { url: originalLink } = req.body;
 
-	const { userId } = await validateGenerateLinkRequest(currentUser);
-	const { linkDocument } = await createAndSaveShortUrl({ userId, originalLink });
+	const { userId, title } = await validateGenerateLinkRequest(originalLink, currentUser);
+	const { linkDocument } = await createAndSaveShortUrl({ userId, originalLink, title });
 
 	res.send(linkDocument);
 }
 
 async function createAndSaveShortUrl(params: createAndSaveShortUrlParams): Promise<createAndSaveShortUrlResult> {
 
-	const { userId, originalLink } = params;
+	const { userId, originalLink, title } = params;
 
 	const { shortId, shortLink } = generateShortUrl();
 
@@ -47,6 +48,7 @@ async function createAndSaveShortUrl(params: createAndSaveShortUrlParams): Promi
 		shortId,
 		shortLink,
 		originalLink,
+		title,
 		creator: userId,
 		createdAt: new Date()
 	};
@@ -68,3 +70,5 @@ async function createAndSaveShortUrl(params: createAndSaveShortUrlParams): Promi
 
 	return { linkDocument };
 }
+
+

@@ -1,18 +1,24 @@
 <template>
-    <div class="home">
-        <img alt="Vue logo" src="../assets/logo.png">
-        <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <div>
+        <LinkCreator/>
+        <LinkList v-if="isLoggedIn"/>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import LinkCreator from "@/components/LinkCreator.vue";
+import LinkList from "@/components/LinkList.vue";
+import { mapGetters } from "vuex";
 
 export default Vue.extend({
     name: 'Home',
     components: {
-        HelloWorld,
+        LinkCreator,
+        LinkList
     },
+    computed: {
+        ...mapGetters({ isLoggedIn: "getUserLoginStatus" }),
+    }
 });
 </script>

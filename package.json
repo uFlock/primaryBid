@@ -8,6 +8,8 @@
 	},
 	"author": "Vladimir Muzichuk",
 	"license": "MIT",
-	"dependencies": {},
+	"dependencies": {
+		"got": "^11.8.2"
+	},
 	"devDependencies": {}
 }

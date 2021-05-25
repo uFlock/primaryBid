@@ -1,5 +1,5 @@
 import express, { Router } from "express";
-// import cors from "cors";
+import cors from "cors";
 import bodyParser from "body-parser";
 
 import "express-async-errors";
@@ -24,8 +24,13 @@ const appRouter = Router();
 
 setAppRoutes(appRouter);
 
+app.use(cors({
+	origin: ['http://localhost:8080', 'http://192.168.1.128:8080'],
+	credentials: true
+}));
+
 app.use((req, res, next) =>
-	bodyParser.json() (req, res, next));
+	bodyParser.json()(req, res, next));
 
 app.use(
 	cookieSession({

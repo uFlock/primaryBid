@@ -8,6 +8,7 @@ export interface LinkAttributes {
 	shortId: string
 	shortLink: string
 	originalLink: string
+	title?: string | null
 	creator: string | null
 	createdAt?: Date
 }
@@ -16,6 +17,7 @@ export interface LinkDocument extends Document {
 	shortId: string
 	shortLink: string
 	originalLink: string
+	title?: string | null
 	creator: string | UserDocument | null
 	createdAt?: Date
 }
@@ -31,6 +33,7 @@ const LinkSchema: Schema = new Schema(
 		shortId: { type: String, required: true, unique: true, },
 		shortLink: { type: String, required: true, unique: true, },
 		originalLink: { type: String, required: true },
+		title: { type: String, required: false },
 		creator: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "User",
