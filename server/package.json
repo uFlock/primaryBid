@@ -4,7 +4,7 @@
 	"description": "Api Server for PrimaryBid Technical Task",
 	"main": "index.js",
 	"scripts": {
-		"start-dev": "nodemon -L --delay 80ms --watch *.ts --exec ts-node src/index.ts",
+		"start-dev": "nodemon --watch *.ts --exec ts-node src/index.ts",
 		"start": "npm run build && node build/index",
 		"nodemon": "nodemon",
 		"build": "shx rm -rf ./build && tsc -p tsconfig.build.json",
@@ -32,6 +32,7 @@
 		"express": "^4.17.1",
 		"express-async-errors": "^3.1.1",
 		"express-validator": "^6.11.1",
+		"got": "^11.8.2",
 		"jsonwebtoken": "^8.5.1",
 		"metascraper": "^5.21.9",
 		"metascraper-title": "^5.21.9",
