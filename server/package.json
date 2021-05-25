@@ -9,6 +9,7 @@
 		"nodemon": "nodemon",
 		"build": "shx rm -rf ./build && tsc -p tsconfig.build.json",
 		"test": "jest --watchAll --no-cache",
+		"test:ci": "jest",
 		"check-types": "tsc -p tsconfig.json --noEmit"
 	},
 	"author": "Vladimir Muzichuk",
