@@ -30,12 +30,13 @@ It's not perfect, but it works :)
 ### 🚀 Getting Started
 
 1. Simply clone the project from `https://github.com/uFlock/primaryBid.git`.
-2. Commands:
+2. Commands (Run these at the root level):
    * `npm run start` - builds and starts the "production" release that
      by default will run on `localhost:80` (client), `localhost:3000` (api server).
    * `npm run dev` - starts development version with live reload in the docker containers, by default it will run on `localhost:8080` (client), `localhost:3000` (api server).
    * `npm run npm-install` - If you want proper type checking and module resolution whilst developing, this swill install
     all the dependencies in the respective `server` and `client` directories.
+   * `npm run down-all` - will run compose down for both environments.
 
 ### 👷 Example Dev Workflow
 
