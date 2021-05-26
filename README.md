@@ -49,10 +49,6 @@ will rerun every time the corresponding code changes.
 > for demo purposes. This author does not condone commitment of .env files in any way. 😳
 
 > ⚠️ **Invalid Session Error**: Sometimes when you rapidly switch between dev and prod environments you might encounter
-> and `Invalid Session` error when generating a link. Just clear the Application Data for the dev tools to remove
+> an `Invalid Session` error when generating a link. Just clear the Application Data for the dev tools to remove
 > dangling sessions.
-
-
-
-
 
