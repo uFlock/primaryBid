@@ -20,7 +20,7 @@ It's not perfect, but it works :)
 ### 🚧 Project prerequisites
 
 > 🌏 **Internet Access**: In order for the Link Scraping functionality to work please make sure the machine you are running
-> this app on can access internet externally.
+> this app on can access external internet.
 
 1. Node and Npm - get the latest LTS version from [here](https://nodejs.org/en/).
 2. [Docker](https://docs.docker.com/get-docker/) - Please follow the instructions for your respective platform.
