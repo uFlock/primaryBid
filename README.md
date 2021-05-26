@@ -43,10 +43,15 @@ will rerun every time the corresponding code changes.
 4. Now run `npm run dev` command at the root of the project to spin up the development environment with hot reload on code changes.
 5. Appropriate tests will auto run on the GitHub on every push to `master`.
 
-### Excuses and Considerations
+### ⛔ Excuses and Considerations
 
 > ⚠️ **.env files**: The only reason `.env` files were committed was to reduce the hustle of actually running the app 
 > for demo purposes. This author does not condone commitment of .env files in any way. 😳
+
+> ⚠️ **Invalid Session Error**: Sometimes when you rapidly switch between dev and prod environments you might encounter
+> and `Invalid Session` error when generating a link. Just clear the Application Data for the dev tools to remove
+> dangling sessions.
+
 
 
 
