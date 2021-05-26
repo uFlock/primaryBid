@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "npm run down-all && docker-compose -f docker-compose-dev.yml up --build",
 		"start": "npm run down-all && docker-compose -f docker-compose-prod.yml up --build",
-		"down-all": "docker-compose -f docker-compose-dev.yml down && docker-compose -f docker-compose-prod.yml down"
+		"down-all": "docker-compose -f docker-compose-dev.yml down && docker-compose -f docker-compose-prod.yml down",
+		"npm-install": "cd ./server && npm install && cd.. && cd ./client && npm install"
 	},
 	"author": "Vladimir Muzichuk",
 	"license": "MIT",
