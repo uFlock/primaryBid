@@ -41,7 +41,7 @@ It's not perfect, but it works :)
 3. Optional: Go into `server` directory and run `npm run test` command - this will run all the jest test suites and
 will rerun every time the corresponding code changes.
 4. Now run `npm run dev` command at the root of the project to spin up the development environment with hot reload on code changes.
-5. Appropriate tests will auto run on the GitHub on every push to `master`.
+5. Appropriate tests will auto run on the GitHub Repository on every push to the `master` branch.
 
 ### ⛔ Excuses and Considerations
 
