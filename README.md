@@ -6,14 +6,13 @@
 ### ☀️ Features
 
      📐 Responsive Design  
-     📏 Link Shortening   
+     📏 Link Shortening  
+     🌏 Link Title Scraping 
      📃 List of Shortened Links When Logged in   
      📝 Client Registration   
      🔑 Client Login  
      🔐 Client Logout  
-     🌏 Link Title Scraping 
-     📋 One Click Copy To Clipboard
-    
+     📋 One Click Copy To Clipboard    
 
 ### Project prerequisites
 
