@@ -36,7 +36,7 @@
                     <button v-if="!isShortLink"
                             type="submit"
                             class="primary"
-                            :disabled="submitDisabled">
+                            >
                         Shorten
                     </button>
                     <button v-if="isShortLink && !displayCopied"
@@ -71,6 +71,9 @@ import { mapActions, mapGetters, mapMutations } from "vuex";
 
 const SHORT_LINK_BASE_URL = process.env.VUE_APP_SHORT_LINK_BASE_URL;
 
+const URL_PREFIX = 'https://';
+const HTTP_REGEX = new RegExp(/^(http|https):\/\//);
+
 interface LinkCreatorData {
     currentLink: string,
     placeholderLink: string,
@@ -87,7 +90,7 @@ export default Vue.extend({
     data: (): LinkCreatorData => {
         return {
             currentLink: "",
-            placeholderLink: "Shorten your link",
+            placeholderLink: "Shorten your link - minimum 15 characters",
             displayCopied: false,
             generatingLink: false
         };
@@ -102,6 +105,14 @@ export default Vue.extend({
         },
         shortenedUrlInputClass(): string {
             return checkIsShortLink(this.currentLink) ? 'shortenedUrlInput input-green' : '';
+        }
+    },
+    watch: {
+        currentLink(newUrl: string) {
+
+            if (!newUrl.match(HTTP_REGEX)  ) {
+                this.currentLink = (URL_PREFIX + this.currentLink);
+            }
         }
     },
     methods: {
