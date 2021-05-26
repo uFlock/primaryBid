@@ -37,6 +37,10 @@ jobs:
       - name: "Check Types"
         run: cd client && npm run check-types
 
+        # Runs a set of commands using the runners shell
+      - name: "Run Tests"
+        run: cd client && npm run test:unit
+
       # Runs a set of commands using the runners shell
       - name: "Test build"
         run: cd client && npm run build
