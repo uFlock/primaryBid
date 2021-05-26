@@ -5,7 +5,15 @@
 
 ### ☀️ Features
 
-
+     📐 Responsive Design  
+     📏 Link Shortening   
+     📃 List of Shortened Links When Logged in   
+     📝 Client Registration   
+     🔑 Client Login  
+     🔐 Client Logout  
+     🌏 Link Title Scraping 
+     📋 One Click Copy To Clipboard
+    
 
 ### Project prerequisites
 
