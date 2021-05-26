@@ -43,6 +43,36 @@ will rerun every time the corresponding code changes.
 4. Now run `npm run dev` command at the root of the project to spin up the development environment with hot reload on code changes.
 5. Appropriate tests will auto run on the GitHub Repository on every push to the `master` branch.
 
+### 🌳 Environment Files Explained
+
+#### 💻 Client: 
+```dotenv
+# Envrionment DEV or PROD
+VUE_APP_APP_ENV=DEV 
+# API server base url if you change this also update the server side env and port mapping in compose files
+VUE_APP_API_BASE_URL=http://localhost:3000 
+# Base shortening url e.g. https://bit.ly/ will result in links being https://bit.ly/xxx-xxxx
+VUE_APP_SHORT_LINK_BASE_URL=https://pbid.io/
+```
+
+#### 📡 Server:
+```dotenv
+# Envrionment DEV or PROD
+APP_ENV=LIVE
+# PORT to run internally on - if you want to change the port for client edit docker compose mapping instead
+PORT=3000
+# Key user to encrypt JWT tokens - such as cookies
+JWT_KEY="super secret key"
+# Mongo connection string
+MONGO_URI=mongodb://mongo-db:27017
+# Allow client origin when client and server on different addresses - if port 80 then no need to specify port
+# otherwise use port such as http://localhost:8080 in case of dev client
+ALLOW_CORS_ORIGIN=http://localhost
+# Base shortening url e.g. https://bit.ly/ will result in links being https://bit.ly/xxx-xxxx
+# these should match between server and client
+SHORT_LINK_BASE_URL=https://pbid.io/
+```
+
 ### ⛔ Excuses and Considerations
 
 > ⚠️ **.env files**: The only reason `.env` files were committed was to reduce the hustle of actually running the app 
