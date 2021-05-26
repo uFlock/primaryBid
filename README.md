@@ -52,3 +52,6 @@ will rerun every time the corresponding code changes.
 > an `Invalid Session` error when generating a link. Just clear the Application Data for the dev tools to remove
 > dangling sessions.
 
+> ⚠️ **Mongo Data Persistence**: MongoDb does not persist data between npm run dev/npm run start commands. Mongo is used
+> exclusively for demo purposes and in live environment a dedicated cluster would be used.
+
